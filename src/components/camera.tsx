@@ -62,7 +62,7 @@ export const Camera = () => {
               method: "POST",
               body: JSON.stringify({img: data, id: selected?.id}),
             }).then((res)=>res.json()).then((res)=>{
-              if(res.id.score < 0.4){
+              if(res.id.score < 0.3){
                 setCorrect(true)
               }else{
                 setCorrect(false)
@@ -92,7 +92,7 @@ export const Camera = () => {
         </Show>
         <Show when={correct() == true}>
         <div class="absolute z-50 w-screen h-screen top-0 left-0 right-0 bottom-0 backdrop-blur-sm bg-gray-700/50 flex items-center justify-center">
-          <div class=" rounded-sm p-4 pb-0 bg-white max-w-[40vw] text-center">
+          <div class=" rounded-sm p-4 pb-0 bg-white max-w-[80vw] md:max-w-[40vw] text-center">
             <h1 class="text-lg font-bold">Looks Right to US</h1>
             <p>Based on our analysis, we have a high confidence this is the right pill. In training, our AI showed <b>95.4%</b> accuracy in identifying the correct pills</p>
             <br/>
@@ -108,11 +108,14 @@ export const Camera = () => {
           </div>          </Show>
           <Show when={correct() == false}>
             <div class="absolute z-50 w-screen h-screen top-0 left-0 right-0 bottom-0 backdrop-blur-sm bg-gray-700/50 flex items-center justify-center">
-          <div class=" rounded-sm p-4 pb-0 bg-white max-w-[40vw] text-center">
+          <div class=" rounded-sm p-4 pb-0 bg-white max-w-[80vw] md:max-w-[40vw] text-center">
             <h1 class="text-lg font-bold">Something doesn't look right</h1>
             <p>You should double check with a medical professional to confirm this is the pill you want.</p>
             <br/>
-            <p class="text-gray-500">We do make mistakes; I'm just an AI some college kids trained in a couple of hours instead of sleeping.</p>
+            <p class="text-gray-500">We do make mistakes; I'm just an AI some college kids trained overnight instead of sleeping.</p>
+            <br/>
+
+            <p>Our model actually thought this pill was #{globalThis.data.find((v)=>v.id ==alternative())?.name} </p>
             <br/>
             <button class="text-blue-700 border-t border-t-blue-100 w-full py-3 focus:bg-gray-200" onClick={()=>{
               setCorrect(undefined)

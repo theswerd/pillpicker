@@ -28,7 +28,6 @@ fn index(state: &State<Vec<Pill>>, feature: Json<Feature>) -> Json<Out> {
         .par_iter()
         .map(|pill| {
             let score = Metric::Euclidean.measure::<f32>(&pill.feature, &feature.feature);
-            println!("#{:?} score: {:?}", pill.id, score);
             Scored::<Pill> {
                 score,
                 item: pill.clone(),
@@ -37,9 +36,10 @@ fn index(state: &State<Vec<Pill>>, feature: Json<Feature>) -> Json<Out> {
         .collect();
     scored.par_sort_by(|a, b| a.score.partial_cmp(&b.score).unwrap());
     println!(
-        "Highest scoring {} | {}",
-        scored.last().unwrap().item.id,
-        scored.last().unwrap().score
+        "Highest scoring {:?} | {:?}\n\nID: {:?}",
+        scored[0].score,
+        scored.last().unwrap().score,
+        scored.iter().find(|pill| Some(pill.item.id.clone()) == feature.id).unwrap().score
     );
     Json(Out {
         highest: scored[0].clone(),

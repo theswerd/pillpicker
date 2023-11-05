@@ -12,7 +12,7 @@ export function ListOverlay(): JSX.Element {
       id: string;
     }[]
   > => {
-    const json = fetch("public/medium.json").then((res) => {
+    const json = fetch("public/final.json").then((res) => {
       return res.json();
     });
     return json;
