@@ -71,8 +71,8 @@ let test_mapped = {
     test.map((item) => `training/${item.id}`)
   
 };
-fs.writeFileSync("data/extract-350-train-mapped.json", JSON.stringify(train_mapped, null, 2));
-fs.writeFileSync("data/extract-350-test-mapped.json", JSON.stringify(test_mapped, null, 2));
+fs.writeFileSync("data/train.json", JSON.stringify(train_mapped, null, 2));
+fs.writeFileSync("data/val.json", JSON.stringify(test_mapped, null, 2));
 // fs.writeFileSync("data/extract-350-mapped.json", JSON.stringify(mapped, null, 2));
 // {
 //   "class_names": [
