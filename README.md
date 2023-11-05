@@ -1,7 +1,7 @@
 # Pill Picker
-![Static Badge](https://img.shields.io/badge/python-blue)
-![Static Badge](https://img.shields.io/badge/rust-orange)
-![Static Badge](https://img.shields.io/badge/typescript-yellow)
+![Static Badge](https://img.shields.io/badge/lang-python-blue)
+![Static Badge](https://img.shields.io/badge/lang-rust-orange)
+![Static Badge](https://img.shields.io/badge/lang-typescript-yellow)
 
 ![Static Badge](https://img.shields.io/badge/easyfsl-blue)
 ![Static Badge](https://img.shields.io/badge/pytorch-blue)
