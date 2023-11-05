@@ -1,0 +1,32 @@
+{
+  "name": "v2",
+  "scripts": {
+    "dev": "solid-start dev",
+    "build": "solid-start build",
+    "start": "solid-start start"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^18.17.5",
+    "autoprefixer": "^10.4.15",
+    "esbuild": "^0.14.54",
+    "postcss": "^8.4.28",
+    "solid-start-node": "^0.3.9",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^4.9.5",
+    "vite": "^4.4.9"
+  },
+  "dependencies": {
+    "@redis/search": "^1.1.5",
+    "@solid-primitives/devices": "^1.2.4",
+    "@solidjs/meta": "^0.29.1",
+    "@solidjs/router": "^0.8.3",
+    "redis": "^4.6.10",
+    "solid-icons": "^1.1.0",
+    "solid-js": "^1.8.5",
+    "solid-start": "^0.3.9"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
