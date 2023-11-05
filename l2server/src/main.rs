@@ -42,7 +42,7 @@ fn index(state: &State<Vec<Pill>>, feature: Json<Feature>) -> Json<Out> {
         scored.last().unwrap().score
     );
     Json(Out {
-        highest: scored[0],
+        highest: scored[0].clone(),
         id: scored.iter().find(|pill| Some(pill.item.id.clone()) == feature.id).map(|v| v.clone()),
     })
 }
