@@ -13,8 +13,8 @@
 ![Static Badge](https://img.shields.io/badge/vite-yellow)
 ![Static Badge](https://img.shields.io/badge/tailwind-pink)
 
-
-
+### About
+VeriPill is an accessible, affordable, easy-to-use technology that patients can use to reduce medication errors by receiving verification on their prescribed medication in seconds.
 
 
 
