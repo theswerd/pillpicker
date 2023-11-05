@@ -4,11 +4,11 @@ export const SelectedOverlay = ()=>{
     if(selected?.name == undefined){}else{
     return (
         <div class="absolute top-8 items-center flex justify-center w-full">
-        <div class="rounded-full bg-white  h-14 flex p-1 pr-2">
-            <img src={"https://data.lhncbc.nlm.nih.gov/public/Pills/" +selected?.images[0]} class="rounded-full aspect-square mr-2"/>
+        <div class="rounded-full bg-white max-w-[50vw]  h-14 flex p-1 pr-2  justify-between">
+            <img src={"https://data.lhncbc.nlm.nih.gov/public/Pills/" +selected?.images[0]} class="rounded-full aspect-square mr-2 max-w-[3rem]"/>
             <div class="flex flex-col">
 
-                <span class="font-bold">
+                <span class="font-bold truncate">
                 {selected?.name}
                 </span>
                 <span class="text-sm text-gray-600">
