@@ -39,7 +39,25 @@ export const Camera = () => {
         <video ref={video!} class="w-full h-full absolute z-0 object-cover">
         </video>
         <button class="absolute bottom-8 border-white rounded-full border-[3px] h-12 w-12 translate-x-[50vw] -mx-6 focus:border-blue-200 bg-blue-100/20" onClick={(el)=>{
-            (el.target as unknown as HTMLElement).blur()
+          
+            // (el.target as unknown as HTMLElement).blur()
+            // // freeze camera
+            // const tracks = stream()?.getTracks();
+            // tracks?.forEach(function(track) {
+            //   track.stop();
+            // });
+            // take photo
+            const canvas = document.createElement('canvas');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            const ctx = canvas.getContext('2d');
+            ctx?.drawImage(video, 0, 0);
+            const data = canvas.toDataURL('image/jpeg');
+            // save photo
+            fetch("/search", {
+              method: "POST",
+              body: JSON.stringify({img: data}),
+            })
         }}>
 
         </button>

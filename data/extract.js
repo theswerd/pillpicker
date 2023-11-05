@@ -54,6 +54,7 @@ let train = out.slice(0, batch_size * 315);
 let test = out.slice(batch_size * 315, batch_size * 350);
 
 
+fs.writeFileSync("data/extract-350.json", JSON.stringify(out, null, 2));
 fs.writeFileSync("data/extract-350-train.json", JSON.stringify(train, null, 2));
 fs.writeFileSync("data/extract-350-test.json", JSON.stringify(test, null, 2));
 
