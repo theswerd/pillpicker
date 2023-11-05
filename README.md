@@ -17,7 +17,7 @@
 VeriPill is an accessible, affordable, easy-to-use technology that patients can use to reduce medication errors by receiving verification on their prescribed medication in seconds.
 
 
-
+## RUNTIME DIAGRRAM
 ```mermaid
 sequenceDiagram
     Website->>+Web Server: Hello John, how are you?
@@ -25,3 +25,24 @@ sequenceDiagram
     Web Server-->Vector Search Service: Find Highest Scoring Embedding
     Web Server-->>-Website: Return highest score
 ```
+
+## DATA PIPELINE DIAGRAM
+```mermaid
+flowchart TD
+    A[NLM Database] -->|Pull Pill Data| B(Data Processor)
+    B --> C[Format for web search]
+    B --> E[Format for Model Training]
+    E --> F[Pull Images]
+    E --> G[format pandas dataframe]
+    G -->J
+    F --> J[Train Model]
+    J --> K[Extract Embeddings]
+    G --> K
+    C --> L{Text Search}
+    K --> M{Vector Search}
+    %% C -->|One| D[Laptop]
+    %% C -->|Two| E[iPhone]
+    %% C -->|Three| F[fa:fa-car Car]
+```
+
+
