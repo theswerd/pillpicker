@@ -32,6 +32,9 @@ export function ListOverlay(): JSX.Element {
     setData(temp);
     setLoaded(true);
   });
+  createEffect(()=>{
+    globalThis.data = data()
+  })
   //data().filter((item)=>{
   //   item.name.toLowerCase().includes(search().toLowerCase()) ||search().trim() == ''
   // }).slice(0,1000)
@@ -44,7 +47,8 @@ export function ListOverlay(): JSX.Element {
   );
   createEffect(() => {
     const results = data().filter((item) =>
-      item.name.toLowerCase().includes(search().toLowerCase())
+      item.name.toLowerCase().includes(search().toLowerCase()) ||
+      item.id.startsWith(search())
     );
     setSearchResults(results);
   });

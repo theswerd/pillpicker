@@ -1,5 +1,6 @@
 import  * as devices from '@solid-primitives/devices';
 import { createEffect, createSignal, onMount, Show } from 'solid-js';
+import { selected } from '~/stores/selected';
 
 async function requestMediaAccess(): Promise<MediaStream|undefined> {
     console.info("request media access permission");
@@ -56,8 +57,11 @@ export const Camera = () => {
             // save photo
             fetch("/search", {
               method: "POST",
-              body: JSON.stringify({img: data}),
-            })
+              body: JSON.stringify({img: data, id: selected?.id}),
+            }).then((res)=>res.json()).then((res)=>{
+              console.log(res)
+
+            });
         }}>
 
         </button>

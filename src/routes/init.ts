@@ -1,6 +1,6 @@
 import { SchemaFieldTypes,  } from "redis";
 import { APIEvent, json } from "solid-start";
-import json_text from "~/extract-350-features.json?raw";
+import json_text from "~/extract-350-features-final.json?raw";
 import client from "~/lib/client";
 import fs from 'node:fs';
 export async function GET(req: APIEvent) {
